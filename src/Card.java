@@ -1,54 +1,52 @@
 public class Card {
-    String suit;
-    int value;
-    String face;
+    private String suit;
+    private int value;
+    private String face;
+    private String imageName;
 
     /**
-     * initialise a card with a suit(spade, heart, diamond, club) and a value (2 through 9)
+     * initialise a card with a suit and a value
      *
-     * @param suit
-     * @param value
+     * @param suit  - spade, heart, diamond, club
+     * @param value - 2, 3, 4, 5, 6, 7, 8, 9
      */
-    Card(String suit, int value) {
+    Card(int value, String suit, String imageName) {
         this.suit = suit;
         this.value = value;
+        this.imageName = imageName;
     }
 
     /**
      * initialise a card with a suit(spade, heart, diamond, club) and a face(jack, queen, king)
      * all face cards have a value of 10
+     * <p>
+     * TODO Ace card only have value of 10 so far.  This will need to be changed.
      *
-     * @param suit
-     * @param face
+     * @param suit - spade, heart, diamond, club
+     * @param face - ace, jack, queen, kind
      */
-    Card(String suit, String face) {
+    Card(String face, String suit, String imageName) {
         this.value = 10;
         this.suit = suit;
-        this.value = value;
+        this.imageName = imageName;
     }
 
     /**
-     * returns the suit of the card
-     *
-     * @return
+     * @return String representing suit of the card
      */
     String getSuit() {
         return suit;
     }
 
     /**
-     * returns the point value of a card
-     *
-     * @return
+     * @return int representing value of the card
      */
     int getValue() {
         return value;
     }
 
     /**
-     * returns what face (jack, queen, king) a card has
-     *
-     * @return
+     * @return String representing face of card
      */
     String getFace() {
         return face;
