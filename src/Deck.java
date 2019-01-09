@@ -3,8 +3,9 @@ import java.util.ArrayList;
 public class Deck {
     ArrayList<Card> cardArrayList = new ArrayList<>();
 
-    // Creates all of the number cards for each of the suits
-
+    /**
+     * Fills cardArrayList with one of each card
+     */
     public void fillDeck() {
         for (int i = 2; i <= 9; i++) {
             cardArrayList.add(new Card("spade", i));
@@ -13,21 +14,21 @@ public class Deck {
             cardArrayList.add(new Card("club", i));
         }
 
-        cardArrayList.add(new Card("spade", 10, "jack"));
-        cardArrayList.add(new Card("spade", 10, "king"));
-        cardArrayList.add(new Card("spade", 10, "queen"));
+        cardArrayList.add(new Card("spade", "jack"));
+        cardArrayList.add(new Card("spade", "king"));
+        cardArrayList.add(new Card("spade", "queen"));
 
-        cardArrayList.add(new Card("heart", 10, "jack"));
-        cardArrayList.add(new Card("heart", 10, "king"));
-        cardArrayList.add(new Card("heart", 10, "queen"));
+        cardArrayList.add(new Card("heart", "jack"));
+        cardArrayList.add(new Card("heart", "king"));
+        cardArrayList.add(new Card("heart", "queen"));
 
-        cardArrayList.add(new Card("diamond", 10, "jack"));
-        cardArrayList.add(new Card("diamond", 10, "king"));
-        cardArrayList.add(new Card("diamond", 10, "queen"));
+        cardArrayList.add(new Card("diamond", "jack"));
+        cardArrayList.add(new Card("diamond", "king"));
+        cardArrayList.add(new Card("diamond", "queen"));
 
-        cardArrayList.add(new Card("club", 10, "jack"));
-        cardArrayList.add(new Card("club", 10, "king"));
-        cardArrayList.add(new Card("club", 10, "queen"));
+        cardArrayList.add(new Card("club", "jack"));
+        cardArrayList.add(new Card("club", "king"));
+        cardArrayList.add(new Card("club", "queen"));
     }
 
 
