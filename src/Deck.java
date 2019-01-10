@@ -1,6 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
+    /**
+     * The location of the top card. All cards before this position are in use or
+     * have been discarded. From this position on is the deck.
+     */
+    private int topCardLocation = 0;
     private ArrayList<Card> cardArrayList = new ArrayList<>();
 
     ArrayList<Card> getCardArrayList() {
@@ -26,5 +32,36 @@ public class Deck {
                         faceValues[i] + "_of_" + suits[j] + ".png"));
             }
         }
+    }
+
+    /**
+     * Shuffles the deck
+     */
+    public void shuffleDeck() {
+        Collections.shuffle(cardArrayList);
+    }
+
+    /**
+     * move the position of the top card
+     *
+     * @return the top card
+     */
+    public Card drawCard() {
+        //if last card add new deck
+        if (topCardLocation == 52) {
+            addNewDeck();
+        }
+        //move the location of the top of the deck
+        topCardLocation++;
+        //return the top card (-1 since the topCardLocation was moved)
+        return cardArrayList.get(topCardLocation - 1);
+    }
+
+    /**
+     * Simulates adding a new deck
+     */
+    public void addNewDeck() {
+        shuffleDeck();
+        topCardLocation = 0;
     }
 }
