@@ -26,9 +26,10 @@ public class Card {
      * @param face - ace, jack, queen, kind
      */
     Card(String face, String suit, String imageName) {
-        this.value = 10;
+        this.face = face;
         this.suit = suit;
         this.imageName = imageName;
+        this.value = 10;
     }
 
     /**
@@ -50,5 +51,14 @@ public class Card {
      */
     String getFace() {
         return face;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Card{" +
+                "suit = %-8s" +
+                ", value = %-2d" +
+                ", face = %-5s" +
+                ", imageName = %10s", suit, value, face, imageName);
     }
 }
