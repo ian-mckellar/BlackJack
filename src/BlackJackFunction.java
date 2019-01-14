@@ -16,7 +16,23 @@ public class BlackJackFunction
 	 * last two cards are for the user.
 	 */
 	public Card[] dealStart(){
+       //fill and shuffle deck 
+      deck.fillDeck();
+       deck.shuffleDeck();
+       players[0] = new Player("Group4");
+        players[1] = new Player("The Dealer");
+        
+        players[0].addCardToHand(deck.drawCard());
+       players[1].addCardToHand(deck.drawCard()); 
+       players[0].addCardToHand(deck.drawCard());
+       players[1].addCardToHand(deck.drawCard());
+       
+       
+
+
 		return null;
+      
+      
 	}
 	
 	/**
@@ -28,6 +44,34 @@ public class BlackJackFunction
 	 */
 	public Card hitStay(boolean hit)
 	{
+   if(userTurn)
+   {
+      if(hit)
+      {
+      players[0].addCardToHand(deck.drawCard());
+      }
+      if(!hit)
+      {
+      userTurn =  false;
+      }
+   }
+   
+   if (!userTurn)
+   {
+   if(players[1].getPlayersHandTotal() < 17)
+            {
+//            //dealer will hit
+//            System.out.println("Dealer Hits\n");
+               players[1].addCardToHand(deck.drawCard());
+//            dealer.cardOutput(false);
+            }
+            else
+            {
+//            System.out.println("Dealer Stays");
+            userTurn = true;
+            }
+
+   }
 		return null;
 	}
 	
@@ -48,9 +92,12 @@ public class BlackJackFunction
 //       //fill and shuffle deck 
 //       testDeck.fillDeck();
 //       testDeck.shuffleDeck();
+//////////////////
 //       
 //       Player player = new Player("Group4");
 //       Player dealer = new Player("The Dealer");
+
+//////////////////
 //       
 //       //give player and dealer 2 cards each
 //       player.addCardToHand(testDeck.drawCard());
@@ -62,6 +109,10 @@ public class BlackJackFunction
 //       //print player hand
 //       player.cardOutput(true);
 //       dealer.cardOutput(false);
+
+/////////////////////////////////
+
+
 //       
 //       //when player is done hitting
 //       boolean playerDone = false;
