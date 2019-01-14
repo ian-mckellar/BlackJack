@@ -38,6 +38,7 @@ public class Deck {
      * Shuffles the deck
      */
     public void shuffleDeck() {
+        topCardLocation = 0;
         Collections.shuffle(cardArrayList);
     }
 
@@ -62,6 +63,5 @@ public class Deck {
      */
     public void addNewDeck() {
         shuffleDeck();
-        topCardLocation = 0;
     }
 }
