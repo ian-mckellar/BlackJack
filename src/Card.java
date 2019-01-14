@@ -1,4 +1,7 @@
-public class Card {
+import javax.swing.*;
+import java.awt.*;
+
+public class Card extends JPanel {
     private String suit;
     private int value;
     private String face;
@@ -11,9 +14,21 @@ public class Card {
      * @param value - 2, 3, 4, 5, 6, 7, 8, 9
      */
     Card(int value, String suit, String imageName) {
+        JPanel jPanel = new JPanel();
         this.suit = suit;
         this.value = value;
         this.imageName = imageName;
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        drawCard(g);
+    }
+
+    private void drawCard(Graphics g) {
+        ImageIcon imageIcon = new ImageIcon();
+        imageIcon.paintIcon(this, g, 25, 5);
     }
 
     /**
@@ -51,6 +66,13 @@ public class Card {
      */
     String getFace() {
         return face;
+    }
+
+    /**
+     * @return String repreenting location of image in project
+     */
+    String getImageName() {
+        return imageName;
     }
 
     @Override
