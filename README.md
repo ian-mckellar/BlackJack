@@ -2,7 +2,7 @@
 
 # https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches is a good resource for working with branches.
 
-Create and shuffle a deck of cards
+         Create and shuffle a deck of cards
          Create two BlackjackHands, userHand and dealerHand
          Deal two cards into each hand
          if dealer has blackjack
