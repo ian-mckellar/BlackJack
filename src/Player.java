@@ -45,7 +45,7 @@ public class Player {
         this.hand[this.numCards] = card;
         this.numCards++;
 
-        return (this.getPlayersHandTotal() < = 21);
+        return (this.getPlayersHandTotal() <= 21);
     }
 
     /**

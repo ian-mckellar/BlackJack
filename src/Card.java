@@ -6,6 +6,7 @@ public class Card extends JPanel {
     private int value;
     private String face;
     private String imageName;
+    private ImageIcon cardImage;
 
     /**
      * initialise a card with a suit and a value
@@ -14,21 +15,9 @@ public class Card extends JPanel {
      * @param value - 2, 3, 4, 5, 6, 7, 8, 9
      */
     Card(int value, String suit, String imageName) {
-        JPanel jPanel = new JPanel();
         this.suit = suit;
         this.value = value;
         this.imageName = imageName;
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        drawCard(g);
-    }
-
-    private void drawCard(Graphics g) {
-        ImageIcon imageIcon = new ImageIcon();
-        imageIcon.paintIcon(this, g, 25, 5);
     }
 
     /**
@@ -45,6 +34,17 @@ public class Card extends JPanel {
         this.suit = suit;
         this.imageName = imageName;
         this.value = 10;
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        drawCard(g);
+    }
+
+    private void drawCard(Graphics g) {
+        ImageIcon imageIcon = new ImageIcon();
+        imageIcon.paintIcon(this, g, 25, 5);
     }
 
     /**
