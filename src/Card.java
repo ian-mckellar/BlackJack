@@ -1,9 +1,16 @@
-public class Card {
-    private String suit;
+package blackJack;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Card extends JPanel {
+	private static final long serialVersionUID = 1L;
+	private String suit;
     private int value;
     private String face;
     private String imageName;
-
+    private Image cardImage;
+    
     /**
      * initialise a card with a suit and a value
      *
@@ -14,6 +21,18 @@ public class Card {
         this.suit = suit;
         this.value = value;
         this.imageName = imageName;
+        this.setPreferredSize(new Dimension(125,175));
+        this.setOpaque(false);
+        
+        try 
+        {
+        	cardImage = Toolkit.getDefaultToolkit().getImage((Card.class.getResource(imageName)));
+        	cardImage = cardImage.getScaledInstance(123,173, Image.SCALE_SMOOTH);
+        }
+		catch(SecurityException e) 
+		{
+			JOptionPane.showMessageDialog(this, "Could not find image: "+imageName, "Image error", JOptionPane.ERROR_MESSAGE);
+		}
     }
 
     /**
@@ -30,6 +49,32 @@ public class Card {
         this.suit = suit;
         this.imageName = imageName;
         this.value = 10;
+        this.setPreferredSize(new Dimension(125,175));
+        this.setOpaque(false);
+        
+        if(face == "ace")
+        	this.value = 11;
+        
+        try 
+        {
+        	cardImage = Toolkit.getDefaultToolkit().getImage((Card.class.getResource(imageName)));
+        	cardImage = cardImage.getScaledInstance(123,173, Image.SCALE_SMOOTH);
+        }
+		catch(SecurityException e) 
+		{
+			JOptionPane.showMessageDialog(this, "Could not find image: "+imageName, "Image error", JOptionPane.ERROR_MESSAGE);
+		}
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+    	super.paintComponent(g);
+    	Graphics2D g2 = (Graphics2D) g;
+    	g2.setColor(Color.WHITE);
+    	g2.fillRoundRect(0, 0, 125, 175, 10, 10);
+    	g2.setColor(Color.BLACK);
+    	g2.drawRoundRect(0, 0, 125, 175, 10, 10);
+        g2.drawImage(cardImage, 1, 1, this);
     }
 
     /**
@@ -51,6 +96,13 @@ public class Card {
      */
     String getFace() {
         return face;
+    }
+
+    /**
+     * @return String repreenting location of image in project
+     */
+    String getImageName() {
+        return imageName;
     }
 
     @Override
